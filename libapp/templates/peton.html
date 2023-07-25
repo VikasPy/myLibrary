@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+{% block content %}
+    <div style="margin-top:10px" class="container">
+
+        {% for i in pton_f %}
+        <article class="wrapper"> 
+            {{i.pd|safe}}
+        </article>   
+            {% endfor %}
+        </div>
+
+
+{% endblock  %}

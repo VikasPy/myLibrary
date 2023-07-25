@@ -1,0 +1,85 @@
+<title>
+    throughout search
+  </title>
+  
+  {% extends 'base.html' %}
+  {% block content %}
+  
+  
+  
+  <img src="{{searched_book.book_image.url}}" alt="" class="col"
+  style="object-fit: cover;height:320px;width:220px;  margin-top:10px; margin-left:550px; margin-bottom:20px"
+  alt="...">
+    <h4 style="margin-left: 560px;" >Author</h4>
+    <figcaption style="margin-left: 640px;" class="blockquote-footer mb-0">
+      <strong> <a href="https://en.wikipedia.org/wiki/{{books_read.Author}}">
+          {{searched_book.Author}} <br>
+          {{searched_book.Publish_date}}
+        </a></strong>       <div class="row d-flex justify-content-center" style="height: 10px;">
+          <div class="col-md-8 col-lg-5 mt-6">
+            <div class="card shadow-0 border" style="background-color: #f0f2f5;">
+              <div class="card-body p-4">
+                <div class="form-outline mb-4">
+                  <label class="form-label" for="addANote">Reviews</label>
+                  <form action="/comnt" class="form-control" method="post">
+                    {% csrf_token %}
+                  <input style="margin-top: 15px;" type="text" name="comment" class="form-control" placeholder="Type comment..." />
+                  <input type="text" value="{{user.username}}" name="user" hidden>
+                  <input type="text" value="{{books_read.id}}" name="post_id" hidden>
+  
+                   <!-- <a  href="/"><i style="margin-left:12pc; margin-top:15px;" type="submit"  class="bi bi-chat-left-fill"></i></a>    -->
+                   <button  class="btn btn-info" style="margin-top: 15px; margin-left: 25px;" type="submit">Comment</button>
+                </div>
+              </form>
+              <div class="card mb-4" style="height: 10px;">
+                <div style="background-color: rgb(230, 240, 232);" class="card-body">
+                  <form action="/likepost" method="post">
+                    <input type="text" value="{{user.username}}" name="user" hidden>
+                  <input type="text" value="{{searched_book.id}}" name="post_id" hidden>
+                  <input type="text" name="liked_or_not" id = "liked_or_not" value="" hidden >
+                  <button type="button" id="like" onclick="ok()" >Like</button>
+                  </form>
+                          <script>
+                            function ok(){
+                              
+                              let a = document.getElementById('like')
+                              let like_value = document.getElementById("liked_or_not").value
+                              like_value='ok'
+                              if (a.innerText=="Like"){
+                                like_value = 'false'
+                                a.innerText = "Unliked"
+                                
+                              }
+                              else if(a.innerText=="Unliked"){
+                                like_value = 'true'
+                                a.innerText="Like"
+                              }
+                              
+                              console.log(like_value.value)
+                            }
+                          </script>
+                  {% for comment in show_comment %}
+                 <span><strong>{{comment.user}}</strong></span>
+                <span style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;"> <p>{{ comment.com}}</p></span>
+            
+                  
+                
+                
+                {% endfor %}
+                {% endfor %}
+                
+                <strong><a  href="{% url 'commenter' searched_book.id %}"><p  >What They Saying !</p></a></strong> 
+        
+  
+        
+          
+  
+    </figcaption>
+    <div style=" margin-left:10px;">
+  <strong><p> 
+    {{searched_book.book_content|safe}}
+  </p></strong>
+  </div>
+  
+  
+  {% endblock %}

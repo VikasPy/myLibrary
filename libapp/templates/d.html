@@ -1,0 +1,217 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta content="width=device-width, initial-scale=1.0" name="viewport">
+
+  <title>Update Profile</title>
+  <meta content="" name="description">
+  <meta content="" name="keywords">
+
+  <!-- Favicons -->
+  <link href="{% static '/assets/img/logo.png' %}" rel="icon">
+  <link href="{% static '/assets/img/logo.png' %}" rel="icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Raleway:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
+
+  <!-- Vendor CSS Files -->
+  <link href="{% static '/assets/vendor/animate.css/animate.min.css' %}" rel="stylesheet">
+  <link href="{% static '/assets/vendor/aos/aos.css' %}" rel="stylesheet">
+  <link href="{% static '/assets/vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static '/assets/vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static '/assets/vendor/boxicons/css/boxicons.min.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/remixicon/remixicon.css' %}" rel="stylesheet">
+  <link href="{% static '/assets/vendor/swiper/swiper-bundle.min.css' %}" rel="stylesheet">
+
+  <!-- Template Main CSS File -->
+  <link href="{% static '/assets/css/style.css' %}" rel="stylesheet">
+
+  <!-- =======================================================
+  * Template Name: Mentor
+  * Updated: May 30 2023 with Bootstrap v5.3.0
+  * Template URL: https://bootstrapmade.com/mentor-free-education-bootstrap-theme/
+  * Author: BootstrapMade.com
+  * License: https://bootstrapmade.com/license/
+  ======================================================== -->
+   
+     <style>
+        /*TODO: clean it all up, finish flex, add aesthetics, icons, redefine to be relative to vh-vw, maybe rework v2 variant using scss and frames and real transitions? */
+        html body {
+    background-color: black;
+    margin: 0 0 0 0;
+  }
+  .infocardContainer * {
+      font-family: 'Fira Sans Condensed', sans-serif;
+    font-weight: 800;
+}
+h2 {
+    font-weight: 600; font-style: italic; font-family: "Fira Sans Condensed", sans-serif;
+}
+header {
+    height: 2.9em;
+    background-color: #111122;
+    margin: 0 0 0 0;
+    padding: auto;
+    font-size: 2em;
+    text-align: center;
+    line-height: 2em;
+    color: white;
+}
+a {
+    text-decoration: none;
+}
+a:visited {
+    color: #555566;
+}
+a:hover {
+    text-decoration: underline;
+}
+.infocardContainer {
+    display: flex;
+    height: 300px;
+    width: 300px;
+    border-radius: 100px;
+    background: rgb(0,159,255);
+    background: linear-gradient(121deg, rgba(255,255,255,0) 13%, rgba(0,159,255,1) 100%);
+    transition: all 500ms ease-in;
+    transition-delay: 1s;
+    margin: auto;
+    margin-top: 100px;
+    --margin-top: 100px;
+}
+.infocardContainer:hover {
+    width: 500px;
+    border-radius: 100px 10px 100px 100px;
+    transition: all 1s ease-out;
+  }
+  
+  .infocardContainer div {
+    text-color: white;
+    flex-shrink: 1;
+    width: 100%;
+    --background-color: green;
+}
+.infocardContainer div * {
+    display: flex;
+    --flex: inherit;
+    overflow: hidden;
+    text-overflow: hidden;
+    --background-color: yellow;
+    color: white;
+    white-space: nowrap;
+    width: 0;
+    height: auto;
+    transition: all 450ms ease-in;
+    transition-delay: 1s;
+}
+.infocardContainer:hover div *{
+    --background-color: purple;
+    display: flex;
+    visibility: visible;
+    transition: all 1s ease-out;
+    transition-delay: 500ms;
+    width: 100%;
+    height: auto;
+}
+
+.infocardContainer #main, .infocardContainer #main img{
+    --background-color: red;
+    height: 250px;
+    width: 250px;
+    padding-right: 10px;
+    border-radius: 100%;
+    flex-shrink: 0;
+    object-fit: cover;
+}
+.infocardContainer #main img{
+    height: 200px;
+    width: 200px;
+    transition: none;
+    display: float;
+    position: relative;
+    border: 10px solid white;
+    margin: 0 0 0 0; padding: 0 0 0 0;
+}
+.infocardContainer #textbois {
+    position: relative;
+}
+.infocardContainer #textbois #hotlinks {
+    max-width: 60%;
+    max-height: 30px;
+    
+    --background-color: white;
+    position:absolute;
+    bottom: 5px;
+    display: flex;
+    justify-content: space-between;
+    border-radius: 13px;
+}
+.infocardContainer #textbois #hotlinks * {
+    background-color: white;
+    max-width: 30px;
+    --margin: 0 1px 0 1px;
+    border-radius: 25px;
+}
+/*TODO: animate copy main transition style for info*/
+.infocardContainer #textbois #hotlinks *:hover {
+    
+    
+}            
+</style>
+</head>
+
+<body>
+    <header>
+    <!-- place navbar here -->
+  </header>
+  <main>
+    <!--Bootstrap CDN-->
+<!--CDN End Here-->
+<head>
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans+Condensed:300,400,600i&display=swap" rel="stylesheet">
+</head>
+<header> <a style="color: cornflowerblue;" href="/"> Your Profile Updated !</a> </header>
+<a href="{% url 'home' %}" class="btn btn outline Success" style="color: white;">Go to Homepage</a>
+<div class="infocardContainer">
+    {% for i in p %}
+
+    <div id="main">
+      <img src="{{i.user_image.url}}">
+    </div>
+    <div id="textbois">
+      <h2></h2>
+      <strong><h2 style="font-family:Verdana, Geneva, Tahoma, sans-serif;" >{{user}}</h2></strong>
+      <a href="">First Name : {{i.first_name}}</a>
+      <a href="">Last Name : {{i.Last_name}}</a>
+      <a href="">Mobile No : {{i.mobile_no}}</a>
+      <a href="">Email : {{i.email}}</a>
+        {% endfor %}
+
+        <ul class="social-icons">
+            <li><i class="fa fa-facebook"></i></li>
+            <li><i class="fa fa-linkedin"></i></li>
+            <li><i class="fa fa-twitter"></i></li>
+            <li><i class="fa fa-instagram"></i></li>
+        </ul>
+  </div>
+  </div>    
+
+  </main>
+  <footer>
+    <!-- place footer here -->
+  </footer>
+  <!-- Bootstrap JavaScript Libraries -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+    integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3" crossorigin="anonymous">
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.min.js"
+    integrity="sha384-7VPbUDkoPSGFnVtYi0QogXtr74QeVeeIs99Qfg5YCF+TidwNdjvaKZX19NZ/e6oz" crossorigin="anonymous">
+  </script>
+</body>
+
+</html>

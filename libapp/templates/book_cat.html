@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container my-5">
+  <div class="row">
+    {% for i in books %}
+    <div class="col-lg-3 col-md-6 d-flex align-items-stretch">
+      <div class="row">
+
+        <a href="{% url 'book_read' i.id %}">
+          <img src="{{i.book_image.url}}" class="img-fluid" style="object-fit: cover;height:200px " alt="...">
+        </a>
+        <div class="course-content">
+          <div class="d-flex justify-content-between align-items-center mb-3">
+          </div>
+          <strong>
+            <p >{{i.book_name}}</p>
+          </strong>
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+{% endblock %}

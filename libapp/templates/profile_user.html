@@ -1,0 +1,122 @@
+<title>
+    Profile user
+</title>
+{% extends 'base.html' %}
+
+
+
+<style>
+    body {
+        margin-top: 20px;
+        background: #f5f5f5;
+    }
+
+    /**
+         * Panels
+         */
+    /*** General styles ***/
+    .panel {
+        box-shadow: none;
+    }
+
+    .panel-heading {
+        border-bottom: 0;
+    }
+
+    .panel-title {
+        font-size: 17px;
+    }
+
+    .panel-title>small {
+        font-size: .75em;
+        color: #999999;
+    }
+
+    .panel-body *:first-child {
+        margin-top: 0;
+    }
+
+    .panel-footer {
+        border-top: 0;
+    }
+
+    .panel-default>.panel-heading {
+        color: #333333;
+        background-color: transparent;
+        border-color: rgba(0, 0, 0, 0.07);
+    }
+
+    form label {
+        color: #999999;
+        font-weight: 400;
+    }
+
+    .form-horizontal .form-group {
+        margin-left: -15px;
+        margin-right: -15px;
+    }
+
+    @media (min-width: 768px) {
+        .form-horizontal .control-label {
+            text-align: right;
+            margin-bottom: 0;
+            padding-top: 7px;
+        }
+    }
+
+    .profile__contact-info-icon {
+        float: left;
+        font-size: 18px;
+        color: #999999;
+    }
+
+    .profile__contact-info-body {
+        overflow: hidden;
+        padding-left: 20px;
+        color: #999999;
+    }
+
+    .profile-avatar {
+        width: 200px;
+        position: relative;
+        margin: 0px auto;
+        margin-top: 196px;
+        border: 4px solid #f3f3f3;
+    }
+     #a :hover{
+        background-color: red;
+
+    }
+</style>
+
+{% block content %}
+
+<main>
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
+    <div class="container bootstrap snippets bootdeys">
+        <div class="row">
+            <div class="col-xs-12 col-sm-">
+                <div class="panel panel-default">
+                    {% for i in p %}
+                    <div id="a" class="panel-body text-center">
+                        <a href="">
+                            <img style="border-radius: 50px;" width="144rem" src="{{i.user_image.url}}" class="img-fluid" alt="...">
+
+                            <h3>{{user}}</h3>
+                            First Name:- {{i.first_name}} <br>
+                            Last Name:- {{i.Last_name}} <br>
+                            Email :- {{i.email}} <br>
+                            Mobile No :- {{i.mobile_no}} <br>
+
+                            {% endfor %}
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+</main>
+{% endblock %}

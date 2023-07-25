@@ -1,0 +1,126 @@
+<title>Mentor Library Courses</title>
+
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<main id="main">
+
+  <!-- ======= Popular Courses Section ======= -->
+  <section id="popular-courses" class="courses">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-title" style="margin-top: 20px;">
+        <h2>Books</h2>
+        <p>Popular Books</p>
+      </div>
+
+      <div class="row" data-aos="zoom-in" data-aos-delay="100">
+        
+        {% for i in c %}
+        <div class="col-lg-4 col-md-6 d-flex align-items-stretch">
+          <div class="row">
+            <img src="{{i.field_image.url}}" class="img-fluid" alt="...">
+            <div class="course-content">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <h4>{{i.field_Type}}</h4>
+                <p class="price">{{i.price}}</p>
+              </div>
+
+              <h3><a href="">{{i.field_name}}  </a></h3>
+           <strong> <p>{{i.about_field}}
+              </p></strong>  
+            </div>
+          </div>
+        </div> <!-- End Course Item-->
+        {% endfor %}
+
+        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-md-0">
+          <div class="course-item">
+            <img src="{% static '/assets/img/course-2.jpg' %}" class="img-fluid" alt="...">
+            <div class="course-content">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <h4>Marketing</h4>
+                <p class="price">1250 Rs</p>
+              </div>
+
+              <h3><a href="course-details.html">Treading</a></h3>
+             <strong><p>Trading, in simple terms, is the act of buying and selling financial instruments (like shares, forex and indices) without directly owning them, in the hopes of making a profit from changes in their price movements.</strong>
+                .</p>
+            </div>
+          </div>
+        </div> <!-- End Course Item-->
+
+        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
+          <div class="course-item">
+            <img src="{% static '/assets/img/course-3.jpg' %}" class="img-fluid" alt="...">
+            <div class="course-content">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <h4>Content</h4>
+                <p class="price">1380 Rs</p>
+              </div>
+
+              <h3><a href="course-details.html">Copywriting</a></h3>
+            <strong> <p>Content writing is the process of creating and publishing written content for a variety of purposes, including marketing, education, and entertainment. Content writers must be able to research topics, write in a clear and concise style, and edit their work for grammar and spelling errors.</p></strong> 
+            </div>
+          </div>
+        </div> <!-- End Course Item-->
+        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
+          <div class="course-item">
+            <img src="{% static '/assets/img/course-3.jpg' %}" class="img-fluid" alt="...">
+            <div class="course-content">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <h4>Law Field</h4>
+                <p class="price">1380 Rs</p>
+              </div>
+
+              <h3><a href="course-details.html">Law</a></h3>
+            <strong>  <p>Law is a set of rules that are created and are enforceable by social or governmental institutions to regulate behavior, with its precise definition a matter of longstanding debate. It has been variously described as a science and as the art of justice.
+              </p></strong>
+            </div>
+          </div>
+        </div> <!-- End Course Item-->
+
+        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
+          <div class="course-item">
+            <img src="{% static '/assets/img/course-3.jpg' %}" class="img-fluid" alt="...">
+            <div class="course-content">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <h4>Science and  Technology</h4>
+                <p class="price">5180 Rs</p>
+              </div>
+
+              <h3><a href="course-details.html">IT</a></h3>
+             <strong> <p>The field of information technology, or IT, covers the support, administration, and design of telecommunications and computer systems. Some positions in this field include system analysts, software programmers, computer scientists, computer support specialists, and network and database administrators.
+            </p></strong>
+            </div>
+          </div>
+        </div> <!-- End Course Item-->
+
+        <div class="col-lg-4 col-md-6 d-flex align-items-stretch mt-4 mt-lg-0">
+          <div class="course-item">
+            <img src="{% static '/assets/img/course-3.jpg' %}" class="img-fluid" alt="...">
+            <div class="course-content">
+              <div class="d-flex justify-content-between align-items-center mb-3">
+                <h4>Medical Science</h4>
+                <p class="price">8180 Rs</p>
+              </div>
+
+              <h3><a href="course-details.html">Medical</a></h3>
+              <strong><p>Medical science covers many subjects which try to explain how the human body works. Starting with basic biology it is generally divided into areas of specialisation, such as anatomy, physiology and pathology with some biochemistry, microbiology, molecular biology and genetics.
+              </p></strong>
+            </div>
+          </div>
+        </div> <!-- End Course Item-->
+        
+
+
+
+      </div>
+
+    </div>
+  </section><!-- End Popular Courses Section -->
+
+
+</main><!-- End #main -->
+{% endblock  %}

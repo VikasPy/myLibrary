@@ -1,0 +1,46 @@
+<title>
+Search
+</title>
+
+{% extends 'base.html' %}
+
+
+ {% block content %}
+ {% for i in v  %}
+ <center>
+
+   <div class="container-fluid">
+    <a href="{% url 'searched_book' i.id %}">
+      
+     <img src="{{i.book_image.url}}" alt="" class="col"
+     style="object-fit: cover;height:320px;width:220px;  margin-top:10; margin-bottom:20px"
+     alt="...">
+       <h4>
+        {{i.book_name}} 
+        <br>
+
+         {{i.Author}} <br>Publish On-
+
+         {{i.Publish_date}} 
+    
+       </h4>
+       </a>
+  
+   </div>
+ </center>
+ 
+
+      {% empty %}
+      <center>
+        <h3 style="color: red; margin-top:25px">      No Data Found
+        </h3>
+        
+
+      </center>
+ 
+     {% endfor %}
+
+ 
+
+
+ {% endblock  %}

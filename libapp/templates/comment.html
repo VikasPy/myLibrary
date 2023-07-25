@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% block content %}
+  <style>
+    @import url(http://fonts.googleapis.com/css?family=Calibri:400,300,700);body{background-color: #D32F2F;font-family: 'Calibri', sans-serif !important}.mt-100{margin-top: 100px}.mb-100{margin-bottom:100px}.card{position: relative;display: -webkit-box;display: -ms-flexbox;display: flex;-webkit-box-orient: vertical;-webkit-box-direction: normal;-ms-flex-direction: column;flex-direction: column;min-width: 0;word-wrap: break-word;background-color: #fff;background-clip: border-box;border: 0px solid transparent;border-radius: 0px}.card-body{-webkit-box-flex: 1;-ms-flex: 1 1 auto;flex: 1 1 auto;padding: 1.25rem}.card .card-title{position: relative;font-weight: 600;margin-bottom: 10px}.comment-widgets{position: relative;margin-bottom: 10px}.comment-widgets .comment-row{border-bottom: 1px solid transparent;padding: 14px;display: -webkit-box;display: -ms-flexbox;display: flex;margin: 10px 0}.p-2{padding: 0.5rem !important}.comment-text{padding-left: 15px}.w-100{width: 100% !important}.m-b-15{margin-bottom: 15px}.btn-sm{padding: 0.25rem 0.5rem;font-size: 0.76563rem;line-height: 1.5;border-radius: 1px}.btn-cyan{color: #fff;background-color: #27a9e3;border-color: #27a9e3}.btn-cyan:hover{color: #fff;background-color: #1a93ca;border-color: #198bbe}.comment-widgets .comment-row:hover{background: rgba(0, 0, 0, 0.05)}
+
+</style>
+<div class="row d-flex justify-content-center mt-100 mb-100">
+    <div class="col-lg-6">
+        <div class="card">
+            <div class="card-body text-center">
+                <h4 class="card-title"> Comments</h4>
+            </div>
+            <div class="comment-widgets">
+                <!-- Comment Row -->
+                <div class="d-flex flex-row comment-row m-t-0">
+                    {% for pic in p %}
+                   <span> <div class="p-2"><img src="{{i.c_data.url}}." alt="user" width="50" class="rounded-circle"></div>
+                    {% endfor %}
+                    <div class="comment-text w-100">
+                        {% for comment in show_comment %}
+                        
+                        <img src="{{comment.user.user_image.url}}" height="30px" style="border-radius: 15px;" width="30px" alt="">
+                      <h5 class="font-medium">{{comment.user}}</h5> <span class="m-b-15 d-block"> 
+                        <div class="comment-footer">{{ comment.com}} 
+                          <ul style="float: right;">
+                              <span class="text-muted float-right">{{comment.c_data}}</span> 
+                              
+                              {% if comment.user.user == user  %}
+                              <button type="button" class="btn btn-cyan btn-sm">Edit</button> 
+                              <span><span></span></span>
+                              <a href="{% url 'delit' comment.id %}" class="btn btn-outline-danger">Delete</a>
+                              {% else %}
+                              no
+
+                              {% endif %}
+                          </ul>
+                    {% endfor %}
+
+                    </div>
+
+                </div> <!-- Comment Row -->
+        </div>
+    </div>
+</div>
+ <!-- <div class="card mb-4" style="height: 10px;">
+    <div style="background-color: rgb(230, 240, 232);" class="card-body">
+      {% for comment in show_comment %}
+     <span><strong>{{comment.user}}</strong></span>
+    <span style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;"> <p>{{ comment.com}}</p></span>
+    {% endfor %}  -->
+
+      
+ 
+
+{% endblock  %}

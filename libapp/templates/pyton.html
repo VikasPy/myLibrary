@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% block content %}
+<style>
+    @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+    body{
+      animation: scroll 100s linear infinite;
+      background: url("https://images.unsplash.com/photo-1465146633011-14f8e0781093?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=3450&q=80"),
+        #111111;
+    
+    }
+    .container{
+      font-size: larger;
+    }
+
+label {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 6em;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background-image: linear-gradient(gold, gold);
+  background-size: 100% 10px;
+  background-repeat: no-repeat;
+  background-position: 100% 0%;
+   transition: background-size .7s, background-position .5s ease-in-out;
+}
+
+  label:hover {
+  background-size: 100% 100%;
+  background-position: 0% 100%;
+  transition: background-position .7s, background-size .5s ease-in-out;
+}
+</style>
+<label style="color: white;" > I love Python! </label>
+<div class="container">
+  <table>
+
+    <ul>
+     <strong> <h1 style="margin-top: 20px; color:white">Python Basic</h1></strong>
+
+      <li><a href="/pton_data/Syntax">Syntax</a></li>
+      <li><a href="/pton_data/Comments">Comments</a></li>
+      <li><a href="/pton_data/Variable">Variable</a></li>
+      <li><a href="/pton_data/Data Type">Data Type</a></li>
+      <li><a href="/pton_data/Tuple">Tuple</a></li>
+      <li><a href="/pton_data/String">String</a></li>
+      <li><a href="/pton_data/List">List</a></li>
+      <li><a href="/pton_data/Set">Set</a></li>
+      <li><a href="/pton_data/Dictionaries">Dictionaries</a></li>
+      <li><a href="/pton_data/Operator">Operator</a></li>
+
+
+
+      <li><a href="/pton_data/If Else">IF Else</a></li>
+      <li><a href="/pton_data/For Loop">For Loop</a></li>
+      <li><a href="/pton_data/While Loop">While Loop</a></li>
+      <li><a href="/pton_data/Functions">Functions</a></li>
+      <li><a href="/pton_data/Lambda Function">Lambda Function</a></li>
+      <li><a href="/pton_data/Class & Object">Class & Object</a></li>
+      <li><a href="/pton_data/Trpton_data">Try Except</a></li>
+    </ul>
+  </table>
+</div>
+
+
+
+
+
+
+
+{% endblock  %}
